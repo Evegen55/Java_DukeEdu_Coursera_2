@@ -1,6 +1,6 @@
 package earthquakes_programming_and_interfaces;
 
-import EarthquakeFilterStarterProgram.QuakeEntry;
+
 
 
 /**

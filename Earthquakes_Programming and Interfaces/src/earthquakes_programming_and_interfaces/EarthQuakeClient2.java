@@ -1,7 +1,5 @@
 package earthquakes_programming_and_interfaces;
 
-import EarthquakeFilterStarterProgram.EarthQuakeParser;
-import EarthquakeFilterStarterProgram.QuakeEntry;
 import java.util.*;
 import edu.duke.*;
 
