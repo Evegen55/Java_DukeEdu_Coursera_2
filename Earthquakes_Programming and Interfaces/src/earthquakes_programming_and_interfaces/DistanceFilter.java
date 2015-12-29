@@ -9,31 +9,30 @@ package earthquakes_programming_and_interfaces;
  *
  * @author Lartsev
  */
-public class MagnitudeFilter implements Filter{
-    private double minMag;
-    private double maxMag;
+public class DistanceFilter implements Filter{
+    private int minDist;
+    private int maxDist;
     
-    public MagnitudeFilter() {
-        minMag = 0;
-        maxMag = 0;
+    public DistanceFilter() {
+        minDist = 0;
+        maxDist = 0;
     }
     /**
      * 
      * @param min
      * @param max 
      */
-    public MagnitudeFilter(double min, double max) {
-        this.minMag = min;
-        this.maxMag = max;
+    public DistanceFilter(int min, int max) {
+        this.minDist = min;
+        this.maxDist = max;
     }
-    
 
     @Override
+    
     public boolean satisfies(QuakeEntry qe) {
-        if (qe.getMagnitude() >= minMag && qe.getMagnitude() <= maxMag) {
+        if (qe.getMagnitude() >= minDist && qe.getMagnitude() <= maxDist) {
             return true;
         }
         return false;
     }
-    
 }

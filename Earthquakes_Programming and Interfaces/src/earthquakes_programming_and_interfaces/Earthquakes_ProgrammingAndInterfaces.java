@@ -36,6 +36,14 @@ public class Earthquakes_ProgrammingAndInterfaces {
         LargestQuakes l = new LargestQuakes();
         l.findListOfLargestQuakes();
     }
+    public void test5(){
+        EarthQuakeClient2 s = new EarthQuakeClient2();
+        //s.createCSV();
+        //s.bigQuakes();
+        //s.closeToMe();
+        //s.quakesOfDepth();
+        s.quakesWithFilter();
+    }
             
 
     /**
@@ -45,9 +53,10 @@ public class Earthquakes_ProgrammingAndInterfaces {
         // TODO code application logic here
         Earthquakes_ProgrammingAndInterfaces d = new Earthquakes_ProgrammingAndInterfaces();
         //test package EarthquakeMagnitudeDistanceDemo
-        d.test1();
+        //d.test1();
         //d.test2();
         //d.test4();
+        d.test5();
     }
     
 }

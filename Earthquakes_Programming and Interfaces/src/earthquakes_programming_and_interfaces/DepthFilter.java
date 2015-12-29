@@ -10,19 +10,28 @@ package earthquakes_programming_and_interfaces;
  * @author Lartsev
  */
 public class DepthFilter implements Filter{
-    private int minMag;
-    private int maxMag;
+    private double minDepth;
+    private double maxDepth;
     
     public DepthFilter() {
-        minMag = 0;
-        maxMag = 0;
+        minDepth = 0;
+        minDepth = 0;
+    }
+    /**
+     * 
+     * @param min
+     * @param max 
+     */
+    public DepthFilter(double min, double max) {
+        this.minDepth = min;
+        this.maxDepth = max;
     }
 
     @Override
     public boolean satisfies(QuakeEntry qe) {
-        if (qe.getMagnitude() >= minMag && qe.getMagnitude() <= maxMag) {
-            return true;
-        }
+        if (qe.getDepth()>minDepth && qe.getDepth()<maxDepth) {
+            return true;                                                           
+        } else 
         return false;
     }
 
