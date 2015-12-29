@@ -32,6 +32,10 @@ public class Earthquakes_ProgrammingAndInterfaces {
         LargestQuakes l = new LargestQuakes();
         l.findLargestQuakes();
     }
+        public void test4() {
+        LargestQuakes l = new LargestQuakes();
+        l.findListOfLargestQuakes();
+    }
             
 
     /**
@@ -43,7 +47,7 @@ public class Earthquakes_ProgrammingAndInterfaces {
         //test package EarthquakeMagnitudeDistanceDemo
         //d.test1();
         //d.test2();
-        d.test3();
+        d.test4();
     }
     
 }

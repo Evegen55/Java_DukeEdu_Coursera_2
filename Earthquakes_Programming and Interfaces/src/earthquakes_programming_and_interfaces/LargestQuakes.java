@@ -80,34 +80,47 @@ public class LargestQuakes {
         return maxIndex;
     }
     
-        public int getLargest(ArrayList<QuakeEntry> Data, int howMany) {
-        
-        Comparator<QuakeEntry> cmtr = new Comparator<QuakeEntry>() {
-            @Override
-            public int compare(QuakeEntry t, QuakeEntry t1) {
-                if (t.getMagnitude() < t1.getMagnitude())
-                    return -1;
-                if (t.getMagnitude() == t1.getMagnitude()) 
-                    return 1;
-                if (t1.getMagnitude() > t1.getMagnitude())
-                    return 0;
+    public ArrayList<QuakeEntry> getLargest(ArrayList<QuakeEntry> Data, int howMany) {
+        ArrayList<QuakeEntry> trimData = new ArrayList<QuakeEntry>();
+        //------------------------------------------------------------
+        //Use lambda-function:
+        Comparator<QuakeEntry> cmtr = (QuakeEntry t, QuakeEntry t1) -> {
+            if (t.getMagnitude() < t1.getMagnitude())
+                return -1;
+            if (t.getMagnitude() == t1.getMagnitude())
+                return 1;
+            if (t1.getMagnitude() > t1.getMagnitude())
+                return 0;
             return 1;
-            }
         };
-        
-        QuakeEntry max = Collections.max(Data, cmtr);
-        int maxIndex = Data.indexOf(max);
-        //----------------------------------------------------------------------
-        System.out.println("//---------------------------------------------------");
-        System.out.println("ArrayList sorted by Magnitude using inner class with Comparator");
-        System.out.println("//---------------------------------------------------");
+        //-------------------------------------------------------------
         Collections.sort(Data, cmtr);
-        for (QuakeEntry qe : Data) {
+        Collections.reverse(Data);
+        if (howMany<=Data.size()) {
+            for (int i =0; i < howMany; i++) {
+                trimData.add(Data.get(i));
+            }
+        }
+        return trimData;
+    }
+    
+    public void findListOfLargestQuakes() {
+	EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        //String source = "data/nov20quakedata.atom";
+        //String  source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list = parser.read(source);
+        System.out.println("read data for " + list.size() + " quakes");
+        System.out.println("//---------------------------------------------------");
+        System.out.println("ArrayList of Largest Quakes");
+        System.out.println("//---------------------------------------------------");
+         ArrayList<QuakeEntry> listTrimmed = getLargest(list, 10);
+        for (QuakeEntry qe : listTrimmed) {
             System.out.println(qe);
         }
         
-        
-        return maxIndex;
+        //All earthquakes
+        System.out.println("index of largest" + "\t" + indexOfLargest(list));
     }
 
     
