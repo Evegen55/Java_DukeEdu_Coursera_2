@@ -24,8 +24,13 @@ public class Earthquakes_ProgrammingAndInterfaces {
     }
     
     public void test2() {
-        earthquakes_programming_and_interfaces.ClosestQuakes c = new earthquakes_programming_and_interfaces.ClosestQuakes();
+        ClosestQuakes c = new ClosestQuakes();
         c.findClosestQuakes();
+    }
+    
+    public void test3() {
+        LargestQuakes l = new LargestQuakes();
+        l.findLargestQuakes();
     }
             
 
@@ -37,7 +42,8 @@ public class Earthquakes_ProgrammingAndInterfaces {
         Earthquakes_ProgrammingAndInterfaces d = new Earthquakes_ProgrammingAndInterfaces();
         //test package EarthquakeMagnitudeDistanceDemo
         //d.test1();
-        d.test2();
+        //d.test2();
+        d.test3();
     }
     
 }
