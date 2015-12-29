@@ -16,10 +16,10 @@ public class Earthquakes_ProgrammingAndInterfaces {
     //test package EarthquakeMagnitudeDistanceDemo
     public void test1(){
         EarthQuakeClient s = new EarthQuakeClient();
-        s.createCSV();
-        s.bigQuakes();
-        s.closeToMe();
-        s.quakesOfDepth();
+        //s.createCSV();
+        //s.bigQuakes();
+        //s.closeToMe();
+        //s.quakesOfDepth();
         s.quakesByPhrase();
     }
     
@@ -45,9 +45,9 @@ public class Earthquakes_ProgrammingAndInterfaces {
         // TODO code application logic here
         Earthquakes_ProgrammingAndInterfaces d = new Earthquakes_ProgrammingAndInterfaces();
         //test package EarthquakeMagnitudeDistanceDemo
-        //d.test1();
+        d.test1();
         //d.test2();
-        d.test4();
+        //d.test4();
     }
     
 }
