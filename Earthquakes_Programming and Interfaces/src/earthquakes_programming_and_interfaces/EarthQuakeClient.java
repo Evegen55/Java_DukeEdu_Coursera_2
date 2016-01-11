@@ -190,19 +190,31 @@ public class EarthQuakeClient {
     }
     public void quakesByPhrase() {
 	EarthQuakeParser parser = new EarthQuakeParser();
-        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedata.atom";
+        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        //String source = "data/nov20quakedata.atom";
         //String  source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("read data for " + list.size() + " quakes");
         
         //ArrayList<QuakeEntry> listBig = filterByPhrase(list, "end", "California");
-        ArrayList<QuakeEntry> listBig = filterByPhrase(list, "any", "Can");
+        ArrayList<QuakeEntry> listBig = filterByPhrase(list, "any", "Ru");
         for (QuakeEntry qe : listBig) {
            System.out.println(qe); 
         }
         //for quizz
         System.out.println(listBig.size());
     }
-    
+    public void allQuaqesRussia() {
+	EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        ArrayList<QuakeEntry> list = parser.read(source);
+        System.out.println("read data for " + list.size() + " quakes");
+        System.out.println("Quakes in Russia");
+         ArrayList<QuakeEntry> listBig = filterByPhrase(list, "any", "Russia");
+        for (QuakeEntry qe : listBig) {
+           System.out.println(qe); 
+        }
+        //for quizz
+        System.out.println("Amount of quakes" + "\t" + listBig.size());
+    }
 }

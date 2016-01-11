@@ -22,6 +22,10 @@ public class Earthquakes_ProgrammingAndInterfaces {
         //s.quakesOfDepth();
         s.quakesByPhrase();
     }
+    public void quakesRu(){
+        EarthQuakeClient s = new EarthQuakeClient();
+        s.allQuaqesRussia();
+    }
     
     public void test2() {
         ClosestQuakes c = new ClosestQuakes();
@@ -54,12 +58,13 @@ public class Earthquakes_ProgrammingAndInterfaces {
     public static void main(String[] args) {
         // TODO code application logic here
         Earthquakes_ProgrammingAndInterfaces d = new Earthquakes_ProgrammingAndInterfaces();
+        d.quakesRu();
         //test package EarthquakeMagnitudeDistanceDemo
         //d.test1();
         //d.test2();
         //d.test3();
         //d.test4();
-        d.test5();
+        //d.test5();
     }
     
 }
