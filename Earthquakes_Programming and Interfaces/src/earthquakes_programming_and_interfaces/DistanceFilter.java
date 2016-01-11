@@ -12,10 +12,12 @@ package earthquakes_programming_and_interfaces;
 public class DistanceFilter implements Filter{
     private int minDist;
     private int maxDist;
+    private Location loc;
     
     public DistanceFilter() {
         minDist = 0;
         maxDist = 0;
+        loc = new Location(0.0,0.0);
     }
     /**
      * 
@@ -26,11 +28,17 @@ public class DistanceFilter implements Filter{
         this.minDist = min;
         this.maxDist = max;
     }
+    public DistanceFilter(int max, Location locate) {
+        this.maxDist = max;
+        this.loc = locate;
+    }
 
     @Override
     
     public boolean satisfies(QuakeEntry qe) {
-        if (qe.getMagnitude() >= minDist && qe.getMagnitude() <= maxDist) {
+        Location qeLoc = qe.getLocation();
+        Float dist = loc.distanceTo(qeLoc);
+        if (dist <= maxDist) {
             return true;
         }
         return false;

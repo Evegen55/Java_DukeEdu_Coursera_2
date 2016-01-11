@@ -33,11 +33,18 @@ public class EarthQuakeClient2
         
         Filter fd = new DepthFilter(-35000.0, -12000.0);
         
+        
+        Location tokio = new Location(35.42, 139.43);
+        Filter floc = new DistanceFilter(10000000, tokio);
+        
+        
         ArrayList<QuakeEntry> m7  = filter(list, fm); 
         
         ArrayList<QuakeEntry> m8  = filter(m7, fd);
+        
+        ArrayList<QuakeEntry> mloc  = filter(list, floc);
                 
-        for (QuakeEntry qe: m8) {
+        for (QuakeEntry qe: mloc) {
             System.out.println(qe);
         } 
         
