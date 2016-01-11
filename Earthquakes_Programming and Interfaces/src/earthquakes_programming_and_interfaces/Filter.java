@@ -11,5 +11,6 @@ package earthquakes_programming_and_interfaces;
  */
 public interface Filter
 {
-    public  boolean satisfies(QuakeEntry qe); 
+    public  boolean satisfies(QuakeEntry qe);
+    public String getName();
 }

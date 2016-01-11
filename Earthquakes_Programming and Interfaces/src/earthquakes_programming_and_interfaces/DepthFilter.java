@@ -35,5 +35,8 @@ public class DepthFilter implements Filter{
         return false;
     }
 
-    
+    @Override
+    public String getName() {
+        return "DepthFilter";
+    }
 }

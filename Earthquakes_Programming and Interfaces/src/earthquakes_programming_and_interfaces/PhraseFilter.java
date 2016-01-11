@@ -34,4 +34,9 @@ public class PhraseFilter implements Filter{
         return false;
     }
     
+    @Override
+    public String getName() {
+        return "PhraseFilter";
+    }
+    
 }

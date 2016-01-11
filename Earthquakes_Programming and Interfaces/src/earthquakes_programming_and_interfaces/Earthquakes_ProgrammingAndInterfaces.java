@@ -42,7 +42,9 @@ public class Earthquakes_ProgrammingAndInterfaces {
         //s.bigQuakes();
         //s.closeToMe();
         //s.quakesOfDepth();
-        s.quakesWithFilter();
+        //s.quakesWithFilter();
+        //s.testMatchAllFilter();
+        s.testMatchAllFilter2();
     }
             
 
@@ -55,6 +57,7 @@ public class Earthquakes_ProgrammingAndInterfaces {
         //test package EarthquakeMagnitudeDistanceDemo
         //d.test1();
         //d.test2();
+        //d.test3();
         //d.test4();
         d.test5();
     }

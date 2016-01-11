@@ -36,4 +36,9 @@ public class MagnitudeFilter implements Filter{
         return false;
     }
     
+    @Override
+    public String getName() {
+        return "MagnitudeFilter";
+    }
+    
 }
