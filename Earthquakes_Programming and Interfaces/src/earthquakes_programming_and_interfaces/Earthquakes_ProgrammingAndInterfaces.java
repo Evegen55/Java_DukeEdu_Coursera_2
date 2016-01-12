@@ -14,6 +14,10 @@ package earthquakes_programming_and_interfaces;
 public class Earthquakes_ProgrammingAndInterfaces {
     
     //test package EarthquakeMagnitudeDistanceDemo
+
+    /**
+     *
+     */
     public void test1(){
         EarthQuakeClient s = new EarthQuakeClient();
         //s.createCSV();
@@ -22,24 +26,42 @@ public class Earthquakes_ProgrammingAndInterfaces {
         //s.quakesOfDepth();
         s.quakesByPhrase();
     }
+
+    /**
+     *
+     */
     public void quakesRu(){
         EarthQuakeClient s = new EarthQuakeClient();
         s.allQuaqesRussia();
     }
     
+    /**
+     *
+     */
     public void test2() {
         ClosestQuakes c = new ClosestQuakes();
         c.findClosestQuakes();
     }
     
+    /**
+     *
+     */
     public void test3() {
         LargestQuakes l = new LargestQuakes();
         l.findLargestQuakes();
     }
-        public void test4() {
+
+    /**
+     *
+     */
+    public void test4() {
         LargestQuakes l = new LargestQuakes();
         l.findListOfLargestQuakes();
     }
+
+    /**
+     *
+     */
     public void test5(){
         EarthQuakeClient2 s = new EarthQuakeClient2();
         //s.createCSV();

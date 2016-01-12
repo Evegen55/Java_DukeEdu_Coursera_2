@@ -23,6 +23,11 @@ public class DistanceFilter implements Filter{
         loc = locate;
     }
 
+    /**
+     *
+     * @param qe
+     * @return
+     */
     @Override
     
     public boolean satisfies(QuakeEntry qe) {
@@ -34,6 +39,10 @@ public class DistanceFilter implements Filter{
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getName() {
         return "DistanceFilter";

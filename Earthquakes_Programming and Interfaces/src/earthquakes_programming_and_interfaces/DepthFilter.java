@@ -13,6 +13,9 @@ public class DepthFilter implements Filter{
     private double minDepth;
     private double maxDepth;
     
+    /**
+     *
+     */
     public DepthFilter() {
         minDepth = 0;
         minDepth = 0;
@@ -27,6 +30,11 @@ public class DepthFilter implements Filter{
         this.maxDepth = max;
     }
 
+    /**
+     *
+     * @param qe
+     * @return
+     */
     @Override
     public boolean satisfies(QuakeEntry qe) {
         if (qe.getDepth()>minDepth && qe.getDepth()<maxDepth) {
@@ -35,6 +43,10 @@ public class DepthFilter implements Filter{
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getName() {
         return "DepthFilter";

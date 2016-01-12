@@ -13,6 +13,11 @@ public class PhraseFilter implements Filter{
     private String where;
     private String what;
     
+    /**
+     *
+     * @param loc
+     * @param phrase
+     */
     public PhraseFilter(String loc, String phrase) {
         where = loc;
         //where = "any";
@@ -20,7 +25,11 @@ public class PhraseFilter implements Filter{
         what = phrase;
     }
     
-
+    /**
+     *
+     * @param qe
+     * @return
+     */
     @Override
     public boolean satisfies(QuakeEntry qe) {
         if (where.equals("end") && qe.getInfo().endsWith(what)) {
@@ -34,6 +43,10 @@ public class PhraseFilter implements Filter{
         return false;
     }
     
+    /**
+     *
+     * @return
+     */
     @Override
     public String getName() {
         return "PhraseFilter";

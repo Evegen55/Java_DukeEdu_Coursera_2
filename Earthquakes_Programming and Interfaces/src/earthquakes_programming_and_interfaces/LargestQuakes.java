@@ -80,6 +80,12 @@ public class LargestQuakes {
         return maxIndex;
     }
     
+    /**
+     *
+     * @param Data
+     * @param howMany
+     * @return
+     */
     public ArrayList<QuakeEntry> getLargest(ArrayList<QuakeEntry> Data, int howMany) {
         ArrayList<QuakeEntry> trimData = new ArrayList<QuakeEntry>();
         //------------------------------------------------------------
@@ -104,6 +110,9 @@ public class LargestQuakes {
         return trimData;
     }
     
+    /**
+     *
+     */
     public void findListOfLargestQuakes() {
 	EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";

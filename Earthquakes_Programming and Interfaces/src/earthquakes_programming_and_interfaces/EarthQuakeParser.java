@@ -14,15 +14,25 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
-
+/**
+ *
+ * @author Lartsev
+ */
 public class EarthQuakeParser {
 
-	
-	public EarthQuakeParser() {
+    /**
+     *
+     */
+    public EarthQuakeParser() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public ArrayList<QuakeEntry> read(String source) {
+    /**
+     *
+     * @param source
+     * @return
+     */
+    public ArrayList<QuakeEntry> read(String source) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		
 		try {
@@ -104,8 +114,14 @@ public class EarthQuakeParser {
 		return null;
 	}
 	
-
-	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException{
+    /**
+     *
+     * @param args
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException
+     */
+    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException{
 		EarthQuakeParser xp = new EarthQuakeParser();
 		//String source = "data/2.5_week.atom";
 		String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";

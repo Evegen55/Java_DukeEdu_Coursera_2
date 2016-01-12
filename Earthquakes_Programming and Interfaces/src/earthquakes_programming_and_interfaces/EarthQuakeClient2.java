@@ -3,12 +3,26 @@ package earthquakes_programming_and_interfaces;
 import java.util.*;
 import edu.duke.*;
 
+/**
+ *
+ * @author Lartsev
+ */
 public class EarthQuakeClient2
 {
+
+    /**
+     *
+     */
     public EarthQuakeClient2() {
         // TODO Auto-generated constructor stub
     }
 
+    /**
+     *
+     * @param quakeData
+     * @param f
+     * @return
+     */
     public ArrayList<QuakeEntry> filter(ArrayList<QuakeEntry> quakeData, Filter f) { 
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
         for(QuakeEntry qe : quakeData) { 
@@ -19,6 +33,9 @@ public class EarthQuakeClient2
         return answer;
     } 
 
+    /**
+     *
+     */
     public void quakesWithFilter() { 
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
@@ -58,6 +75,9 @@ public class EarthQuakeClient2
         
     }
     
+    /**
+     *
+     */
     public void testMatchAllFilter () {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
@@ -82,6 +102,9 @@ public class EarthQuakeClient2
         System.out.println(m.size());
     }
     
+    /**
+     *
+     */
     public void testMatchAllFilter2 () {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
@@ -108,6 +131,9 @@ public class EarthQuakeClient2
         System.out.println(m.size());
     }
 
+    /**
+     *
+     */
     public void createCSV(){
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "../data/nov20quakedata.atom";
@@ -118,6 +144,10 @@ public class EarthQuakeClient2
         System.out.println("# quakes read: "+list.size());
     }
 
+    /**
+     *
+     * @param list
+     */
     public void dumpCSV(ArrayList<QuakeEntry> list){
         System.out.println("Latitude,Longitude,Magnitude,Info");
         for(QuakeEntry qe : list){

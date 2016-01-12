@@ -11,6 +11,17 @@ package earthquakes_programming_and_interfaces;
  */
 public interface Filter
 {
+
+    /**
+     *
+     * @param qe
+     * @return
+     */
     public  boolean satisfies(QuakeEntry qe);
+
+    /**
+     *
+     * @return
+     */
     public String getName();
 }

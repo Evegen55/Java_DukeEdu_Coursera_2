@@ -6,8 +6,18 @@ package earthquakes_programming_and_interfaces;
 import java.util.*;
 import edu.duke.*;
 
+/**
+ *
+ * @author Lartsev
+ */
 public class EarthQuakeClient {
     
+    /**
+     *
+     * @param quakeData
+     * @param magMin
+     * @return
+     */
     public ArrayList<QuakeEntry> filterByMagnitude(ArrayList<QuakeEntry> quakeData, double magMin) {
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
         //TODO
@@ -19,6 +29,13 @@ public class EarthQuakeClient {
         return answer;              
     }
     
+    /**
+     *
+     * @param quakeData
+     * @param distMax
+     * @param from
+     * @return
+     */
     public ArrayList<QuakeEntry> filterByDistanceFrom(ArrayList<QuakeEntry> quakeData, double distMax, Location from) {      
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
         // TODO
@@ -30,6 +47,10 @@ public class EarthQuakeClient {
         return answer;
     }
             
+    /**
+     *
+     * @param list
+     */
     public void dumpCSV(ArrayList<QuakeEntry> list){
 		System.out.println("Latitude,Longitude,Magnitude,Info");
 		for(QuakeEntry qe : list){
@@ -42,6 +63,9 @@ public class EarthQuakeClient {
 		
 	}
 	
+    /**
+     *
+     */
     public void bigQuakes() {
 	EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
@@ -62,6 +86,9 @@ public class EarthQuakeClient {
         }
 	}
 	
+    /**
+     *
+     */
     public void createCSV(){
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "data/nov20quakedata.atom";
@@ -72,6 +99,9 @@ public class EarthQuakeClient {
         System.out.println("# quakes read: " + list.size());
     }
     
+    /**
+     *
+     */
     public void closeToMe() {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "data/nov20quakedata.atom";
@@ -188,6 +218,10 @@ public class EarthQuakeClient {
         }
     return answer;              
     }
+
+    /**
+     *
+     */
     public void quakesByPhrase() {
 	EarthQuakeParser parser = new EarthQuakeParser();
         String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
@@ -204,17 +238,49 @@ public class EarthQuakeClient {
         //for quizz
         System.out.println(listBig.size());
     }
+
+    /**
+     *
+     */
     public void allQuaqesRussia() {
 	EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        ArrayList<QuakeEntry> list = parser.read(source);
-        System.out.println("read data for " + list.size() + " quakes");
+        String sourcePastWeek= "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        String sourcePastHours = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.atom";
+        String sourcePastDay = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.atom";
+        
+        ArrayList<QuakeEntry> listHours = parser.read(sourcePastHours);
+        ArrayList<QuakeEntry> listDaily = parser.read(sourcePastDay);
+        ArrayList<QuakeEntry> listWeekly = parser.read(sourcePastWeek);
+        
         System.out.println("Quakes in Russia");
-         ArrayList<QuakeEntry> listBig = filterByPhrase(list, "any", "Russia");
-        for (QuakeEntry qe : listBig) {
+        
+        System.out.println("for past hours:");
+        System.out.println("read data for past hour" + "\t"  + listHours.size() + " quakes");
+        ArrayList<QuakeEntry> listBigHours = filterByPhrase(listHours, "any", "Russia");
+        printArray(listBigHours);
+        System.out.println("Amount of quakes for past hour" + "\t" + listBigHours.size());
+        System.out.println("//=========================================================");
+        System.out.println("for past day:");
+        System.out.println("read data for past day" + "\t"  + listDaily.size() + " quakes");
+        ArrayList<QuakeEntry> listBigDaily = filterByPhrase(listDaily, "any", "Russia");
+        printArray(listBigDaily);
+        System.out.println("Amount of quakes daily" + "\t" + listBigDaily.size());
+        System.out.println("//=========================================================");
+        System.out.println("for past week:");
+        System.out.println("read data for past week" + "\t"  + listWeekly.size() + " quakes");
+        ArrayList<QuakeEntry> listBigWeekly = filterByPhrase(listWeekly, "any", "Russia");
+        printArray(listBigWeekly);
+        System.out.println("Amount of quakes weekly" + "\t" + listBigWeekly.size());
+        
+    }
+    
+    /**
+     *
+     * @param list
+     */
+    public void printArray(ArrayList<QuakeEntry> list) {
+        for (QuakeEntry qe : list) {
            System.out.println(qe); 
         }
-        //for quizz
-        System.out.println("Amount of quakes" + "\t" + listBig.size());
     }
 }

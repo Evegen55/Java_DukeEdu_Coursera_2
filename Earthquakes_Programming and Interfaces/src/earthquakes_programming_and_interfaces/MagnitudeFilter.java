@@ -13,6 +13,9 @@ public class MagnitudeFilter implements Filter{
     private double minMag;
     private double maxMag;
     
+    /**
+     *
+     */
     public MagnitudeFilter() {
         minMag = 0;
         maxMag = 0;
@@ -27,7 +30,11 @@ public class MagnitudeFilter implements Filter{
         this.maxMag = max;
     }
     
-
+    /**
+     *
+     * @param qe
+     * @return
+     */
     @Override
     public boolean satisfies(QuakeEntry qe) {
         if (qe.getMagnitude() >= minMag && qe.getMagnitude() <= maxMag) {
@@ -36,6 +43,10 @@ public class MagnitudeFilter implements Filter{
         return false;
     }
     
+    /**
+     *
+     * @return
+     */
     @Override
     public String getName() {
         return "MagnitudeFilter";

@@ -11,9 +11,21 @@ package earthquakes_programming_and_interfaces;
 
 import java.util.*;
 
+/**
+ *
+ * @author Lartsev
+ */
 public class ClosestQuakes
 {
-   public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> quakeData, Location current, int howMany){
+
+    /**
+     *
+     * @param quakeData
+     * @param current
+     * @param howMany
+     * @return
+     */
+    public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> quakeData, Location current, int howMany){
         ArrayList<QuakeEntry> copy = new ArrayList<QuakeEntry>(quakeData);
         ArrayList<QuakeEntry> ret = new ArrayList<QuakeEntry>();
         for(int j=0; j < howMany; j++) {
@@ -33,7 +45,10 @@ public class ClosestQuakes
         return ret;
    }
     
-   public void findClosestQuakes(){
+    /**
+     *
+     */
+    public void findClosestQuakes(){
        EarthQuakeParser parser = new EarthQuakeParser();
 		//String source = "data/nov20quakedata.atom";
 		//String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";

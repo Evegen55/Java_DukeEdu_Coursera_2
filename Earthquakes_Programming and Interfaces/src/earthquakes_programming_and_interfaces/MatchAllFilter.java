@@ -14,6 +14,9 @@ import java.util.ArrayList;
 public class MatchAllFilter implements Filter {
     private ArrayList<Filter> arf;
     
+    /**
+     *
+     */
     public MatchAllFilter() {
         arf = new ArrayList<>();
     }
@@ -25,8 +28,11 @@ public class MatchAllFilter implements Filter {
         arf.add(f);
     }
     
-    
-
+    /**
+     *
+     * @param qe
+     * @return
+     */
     @Override
     public boolean satisfies(QuakeEntry qe) {
         boolean ret = true;
@@ -36,6 +42,10 @@ public class MatchAllFilter implements Filter {
         return ret;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getName() {
         StringBuilder sb = new StringBuilder();
