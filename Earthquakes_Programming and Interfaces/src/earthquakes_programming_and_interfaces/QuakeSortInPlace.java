@@ -162,4 +162,18 @@ public class QuakeSortInPlace
             if(swapped.get(in).getMagnitude() > swapped.get(in+1).getMagnitude())// out of order? MAGNITUDE
                swap(swapped,in, in+1);          // swap them
       }  // end bubbleSort()
+   
+   //-------------------------------------------------------------------------
+   //TODO Assignment 3: Check for Completion
+   /**
+    * 
+    * @param quakes
+    * @return true if the earthquakes are in sorted order by magnitude from smallest to largest. 
+    * Otherwise this methods returns false. You’ll need to loop through the ArrayList 
+    * and check adjacent earthquakes to see if any are out of order.
+    */
+   public boolean checkInSortedOrder(ArrayList<QuakeEntry> quakes) {
+       //TODO
+       return false;
+   }
 }
