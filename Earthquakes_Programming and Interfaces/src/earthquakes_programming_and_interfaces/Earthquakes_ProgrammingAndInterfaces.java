@@ -72,6 +72,11 @@ public class Earthquakes_ProgrammingAndInterfaces {
         //s.testMatchAllFilter();
         s.testMatchAllFilter2();
     }
+    
+    public void testWeek2() {
+        QuakeSortInPlace qsip = new QuakeSortInPlace();
+        qsip.testSort();
+    }
             
 
     /**
@@ -80,13 +85,18 @@ public class Earthquakes_ProgrammingAndInterfaces {
     public static void main(String[] args) {
         // TODO code application logic here
         Earthquakes_ProgrammingAndInterfaces d = new Earthquakes_ProgrammingAndInterfaces();
-        d.quakesRu();
+        //quakes in Russia
+        //d.quakesRu();
+        
         //test package EarthquakeMagnitudeDistanceDemo
         //d.test1();
         //d.test2();
         //d.test3();
         //d.test4();
         //d.test5();
+        
+        //start testing week 2
+        d.testWeek2();
     }
     
 }

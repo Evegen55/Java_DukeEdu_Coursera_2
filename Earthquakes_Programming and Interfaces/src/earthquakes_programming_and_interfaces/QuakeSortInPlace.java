@@ -1,4 +1,4 @@
-package EarthquakesSortingAlgorithms;
+package earthquakes_programming_and_interfaces;
 
 
 /**
@@ -50,8 +50,21 @@ public class QuakeSortInPlace
         //String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
-        System.out.println("read data for "+list.size()+" quakes");    
-        sortByMagnitude(list);
+        System.out.println("read data for "+list.size()+" quakes");
+        //Modify the testSort method to comment out the line sortByMagnitude 
+        //and add below this line a call to sortByLargestDepth. 
+        //Run your program on any data file and you should see the earthquakes 
+        //in sorted order from largest depth to smallest depth.
+        //sortByMagnitude(list);
+        
+        //Modify the testSort method to comment out the line sortByLargestDepth, 
+        //and add below this line a call to sortByMagnitudeWithBubbleSort. 
+        //Run your program on any data file and you should see the earthquakes 
+        //in sorted order from smallest to largest magnitude.
+        //sortByLargestDepth(list);
+        bubbleSort(list);
+        
+        
         for (QuakeEntry qe: list) { 
             System.out.println(qe);
         } 
@@ -93,7 +106,7 @@ public class QuakeSortInPlace
         for (int i = from; i< quakeData.size(); i++) {
             quakeDataFrom.add(quakeData.get(i));
         }
-        QuakeEntry max = Collections.max(quakeDataFrom, cmtr);
+        QuakeEntry max = Collections.max(quakeDataFrom, cmtrDepth);
         
         return quakeDataFrom.indexOf(max);
     }
@@ -105,18 +118,48 @@ public class QuakeSortInPlace
      * @param in 
      */
     public void sortByLargestDepth(ArrayList<QuakeEntry> in){
-        Collections.sort(in, cmtr);
+        Collections.sort(in, cmtrDepth);
     }
     /**
      * comparator
      */
-   private final Comparator<QuakeEntry> cmtr = (QuakeEntry t, QuakeEntry t1) -> {
-        if (t.getMagnitude() < t1.getMagnitude())
+   private final Comparator<QuakeEntry> cmtrDepth = (QuakeEntry t, QuakeEntry t1) -> {
+        if (t.getDepth() < t1.getDepth())
             return -1;
-        if (t.getMagnitude() == t1.getMagnitude())
+        if (t.getDepth() == t1.getDepth())
             return 1;
-        if (t1.getMagnitude() > t1.getMagnitude())
+        if (t1.getDepth() > t1.getDepth())
             return 0;
         return 1;
     };
+   
+   //--------------------------------------------------------------
+   /**
+    * a helper method for swap two integers
+    * @param in
+    * @param one
+    * @param two 
+    */
+   private void swap(ArrayList<QuakeEntry> in, int one, int two)
+      {
+      QuakeEntry temp = in.get(one);
+      
+      in.set(one, in.get(two));
+      in.set(two, temp);
+      }
+   
+   //--------------------------------------------------------------
+   /**
+    * 
+    * @param swapped 
+    */
+   public void bubbleSort(ArrayList<QuakeEntry> swapped){
+      int out, in;
+      int nElems = swapped.size();
+
+      for(out=nElems-1; out>1; out--)   // outer loop (backward)
+         for(in=0; in<out; in++)        // inner loop (forward)
+            if(swapped.get(in).getMagnitude() > swapped.get(in+1).getMagnitude())// out of order? MAGNITUDE
+               swap(swapped,in, in+1);          // swap them
+      }  // end bubbleSort()
 }
