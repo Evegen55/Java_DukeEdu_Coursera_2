@@ -46,8 +46,9 @@ public class QuakeSortInPlace
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        //String source = "data/nov20quakedatasmall.atom";
         //String source = "data/nov20quakedata.atom";
+        String source = "data/earthQuakeDataDec6sample1.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
         System.out.println("read data for "+list.size()+" quakes");
@@ -61,8 +62,8 @@ public class QuakeSortInPlace
         //and add below this line a call to sortByMagnitudeWithBubbleSort. 
         //Run your program on any data file and you should see the earthquakes 
         //in sorted order from smallest to largest magnitude.
-        //sortByLargestDepth(list);
-        bubbleSort(list);
+        sortByLargestDepth(list);
+        //bubbleSort(list);
         
         
         for (QuakeEntry qe: list) { 
@@ -174,6 +175,10 @@ public class QuakeSortInPlace
     */
    public boolean checkInSortedOrder(ArrayList<QuakeEntry> quakes) {
        //TODO
+       for (QuakeEntry qe :  quakes) {
+          // if() {}
+       }
        return false;
    }
+   
 }
